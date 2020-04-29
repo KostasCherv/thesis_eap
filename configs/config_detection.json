@@ -1,0 +1,7 @@
+{
+    "anchors":              [55,69, 75,234, 133,240, 136,129, 142,363, 203,290, 228,184, 285,359, 341,260],
+    "ts_labels":            ["keepRight","pedestrianCrossing","signalAhead","speedLimit35","stop"],
+    "ts_model":             "logs/lisa_ts_000/model.h5",
+    "tf_labels":            ["red","warning","green"],
+    "tf_model":             "logs/lisa_tf_000/model.h5"
+}

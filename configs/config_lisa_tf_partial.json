@@ -1,0 +1,43 @@
+{
+    "model" : {
+        "min_input_size":       288,
+        "max_input_size":       448,
+        "anchors":              [55,69, 75,234, 133,240, 136,129, 142,363, 203,290, 228,184, 285,359, 341,260],
+        "default_anchors":      [ 10,13,  16,30,  33,23,  30,61,  62,45,  59,119,  116,90,  156,198,  373,326],
+        "labels":               ["red","warning","green"]
+    },
+
+    "train": {
+        "train_image_folder":   "/content/mydrive/lisa_tf_yolo/partial_1000/train/",
+        "train_annot_folder":   "/content/mydrive/lisa_tf_yolo/partial_1000/train_annotations/",
+        "cache_name":           "cache/train_lisa_tf_partial.pkl",
+
+        "train_times":          8,
+        "batch_size":           8,
+        "learning_rate":        1e-5,
+        "pretrained_weights":   "/content/mydrive/custom-training/model_data/keras_models/yolov3.h5",
+        "nb_epochs":            200,
+        "initial_epoch":        0, 
+        "warmup_epochs":        3,
+        "ignore_thresh":        0.5,
+        "gpus":                 "1",
+
+        "grid_scales":          [1,1,1],
+        "obj_scale":            5,
+        "noobj_scale":          1,
+        "xywh_scale":           1,
+        "class_scale":          1,
+
+        "tensorboard_dir":      "logs/lisa_tf_partial_100_001/",
+        "saved_weights_name":   "logs/lisa_tf_partial_100_001/model.h5",
+        "debug":                false
+    },
+
+    "valid": {
+        "valid_image_folder":   "/content/mydrive/lisa_tf_yolo/partial_1000/test/",
+        "valid_annot_folder":   "/content/mydrive/lisa_tf_yolo/partial_1000/test_annotations/",
+        "cache_name":           "cache/valid_lisa_tf_partial.pkl",
+
+        "valid_times":          1
+    }
+}
