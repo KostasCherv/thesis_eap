@@ -1,4 +1,10 @@
-# YOLO3 (Detection, Training, and Evaluation)
+# YOLOv3 (Detection, Training, and Evaluation)
+
+Used convert.py of https://github.com/david8862/keras-YOLOv3-model-set to export the base YOLOv3 Keras Model. 
+
+* YOLOv3 Weights file https://pjreddie.com/media/files/yolov3.weights
+
+* Config (cfg) File https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg
 
 ## Installing
 
