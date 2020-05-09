@@ -3,6 +3,7 @@ import numpy as np
 import os
 from .bbox import BoundBox, bbox_iou
 from scipy.special import expit
+from tqdm import tqdm
 
 def _sigmoid(x):
     return expit(x)
@@ -37,11 +38,12 @@ def evaluate(model,
     # Returns
         A dict mapping class names to mAP scores.
     """    
+    print(f"Calculate mAP for {iou_threshold} iou_threshold")
     # gather all detections and annotations
     all_detections     = [[None for i in range(generator.num_classes())] for j in range(generator.size())]
     all_annotations    = [[None for i in range(generator.num_classes())] for j in range(generator.size())]
 
-    for i in range(generator.size()):
+    for i in tqdm(range(generator.size()), desc="Loading Images"):
         raw_image = [generator.load_image(i)]
 
         # make the boxes and the labels
@@ -73,7 +75,7 @@ def evaluate(model,
     # compute mAP by comparing all detections and all annotations
     average_precisions = {}
     
-    for label in range(generator.num_classes()):
+    for label in tqdm(range(generator.num_classes()), desc="Computing mAP"):
         false_positives = np.zeros((0,))
         true_positives  = np.zeros((0,))
         scores          = np.zeros((0,))

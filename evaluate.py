@@ -57,6 +57,7 @@ def _main_(args):
     average_precisions = evaluate(infer_model, valid_generator, iou_threshold=iou_threshold)
 
     # print the score
+    print(f"AP and mAP at {iou_threshold} iou_threshold")
     for label, average_precision in average_precisions.items():
         print(labels[label] + ': {:.4f}'.format(average_precision))
     print('mAP: {:.4f}'.format(sum(average_precisions.values()) / len(average_precisions)))           
