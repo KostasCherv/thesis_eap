@@ -85,7 +85,7 @@ def _main_(args):
         else:
             image_paths += [input_path]
 
-        image_paths = [inp_file for inp_file in image_paths if (inp_file[-4:] in ['.jpg', '.png', 'JPEG'])]
+        image_paths = [inp_file for inp_file in image_paths if (inp_file[-4:] in ['.jpg'])]
 
         # the main loop
         for image_path in image_paths:
@@ -102,12 +102,12 @@ def _main_(args):
             draw_boxes(image, boxes, config['tf_labels'], obj_thresh)
 
             # write the image with bounding boxes to file
-            cv2.imwrite(output_path + image_path.split('\\')[-1], np.uint8(image))         
+            cv2.imwrite(output_path + image_path.split('/')[-1], np.uint8(image))         
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(description='Predict with a trained yolo model')
     argparser.add_argument('-c', '--conf', help='path to configuration file')
-    argparser.add_argument('-i', '--input', help='path to an image, a directory of images, a video, or webcam')    
+    argparser.add_argument('-i', '--input', help='path to an image, a directory of images or a video')    
     argparser.add_argument('-o', '--output', default='output/', help='path to output directory')   
     
     args = argparser.parse_args()
