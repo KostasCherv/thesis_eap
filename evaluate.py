@@ -53,7 +53,8 @@ def _main_(args):
     infer_model = load_model(config['train']['saved_weights_name'])
 
     # compute mAP for all the classes
-    average_precisions = evaluate(infer_model, valid_generator)
+    iou_threshold =  config["valid"]["iou_thresh"] if config["valid"]["iou_thresh"] else 0.5
+    average_precisions = evaluate(infer_model, valid_generator, iou_threshold=iou_threshold)
 
     # print the score
     for label, average_precision in average_precisions.items():
