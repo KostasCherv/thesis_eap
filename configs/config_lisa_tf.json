@@ -20,7 +20,6 @@
         "initial_epoch":        45, 
         "warmup_epochs":        0,
         "ignore_thresh":        0.5,
-        "gpus":                 "1",
 
         "grid_scales":          [1,1,1],
         "obj_scale":            5,
@@ -38,6 +37,7 @@
         "valid_annot_folder":   "/content/mydrive/lisa_tf_yolo/test_annotations/",
         "cache_name":           "cache/valid_lisa_tf.pkl",
 
-        "valid_times":          1
+        "valid_times":          1,
+        "iou_thresh":           0.75
     }
 }

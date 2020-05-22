@@ -20,7 +20,6 @@
         "nb_epochs":            200,
         "warmup_epochs":        0,
         "ignore_thresh":        0.5,
-        "gpus":                 "1",
 
         "grid_scales":          [1,1,1],
         "obj_scale":            5,
@@ -38,6 +37,7 @@
         "valid_annot_folder":   "/content/mydrive/lisa_ts_yolo/test_annotations/",
         "cache_name":           "cache/valid_lisa_ts.pkl",
 
-        "valid_times":          1
+        "valid_times":          1,
+        "iou_thresh":           0.75
     }
 }
